@@ -58,7 +58,7 @@ const app = window['app'] = new Vue({
       this.infoWindow = new google.maps.InfoWindow
 
       this.icon = {
-        url: '/icons/mola.png',
+        url: '/img/mola.png',
         scaledSize: new google.maps.Size(32, 32),
       }
     },
