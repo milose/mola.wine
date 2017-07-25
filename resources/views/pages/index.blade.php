@@ -7,13 +7,13 @@
         <div class="box">
             <div id="map" class="mb"></div>
 
-            <div class="mb">
+            <div class="mbh">
                 <div class="field-body">
-                    <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary mrh">
+                    <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary mrh mbh">
                         <i class="fa fa-fv fa-globe"></i> &nbsp; Show All Venues
                     </button>
 
-                    <button href="#map" @click="showCurrentLocation" class="button is-primary">
+                    <button href="#map" @click="showCurrentLocation" class="button is-primary mbh">
                         <i :class="readingLocation ? 'fa fa-fv fa-spinner' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
                     </button>
                 </div>
