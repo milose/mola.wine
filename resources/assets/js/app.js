@@ -94,6 +94,9 @@ const app = window['app'] = new Vue({
         } catch (err) {}
 
         this.readingLocation = false
+      },
+      () => {
+        this.readingLocation = false
       })
     },
 
