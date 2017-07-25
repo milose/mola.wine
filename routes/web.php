@@ -2,4 +2,4 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('', 'PageController@index');
