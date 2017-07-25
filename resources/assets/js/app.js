@@ -21,11 +21,6 @@ const app = window['app'] = new Vue({
     },
   },
 
-  mounted() {
-    // Get current position
-    navigator.geolocation.getCurrentPosition(this.getCurrentPosition)
-  },
-
   methods: {
     createMap() {
       // load map
