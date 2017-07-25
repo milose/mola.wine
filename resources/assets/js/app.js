@@ -8,11 +8,12 @@ const app = window['app'] = new Vue({
   el: '#app',
 
   data: {
-    markers: [],
-    infoWindow: {},
     icon: {},
-    allLocations: [],
-    visibleLocations: [],
+    needle: '',
+    markers: [],
+    allVenues: [],
+    infoWindow: {},
+    visibleVenues: [],
     currentPosition: {
       lat: 42.5,
       lng: 19.3,
@@ -23,13 +24,6 @@ const app = window['app'] = new Vue({
   mounted() {
     // Get current position
     navigator.geolocation.getCurrentPosition(this.getCurrentPosition)
-
-    // Load locations from the API
-    axios.get('/api/locations')
-      .then(response => {
-        this.allLocations = response.data
-        this.loadMarkers()
-      })
   },
 
   methods: {
@@ -44,12 +38,12 @@ const app = window['app'] = new Vue({
       // map listeners
       this.map.addListener('bounds_changed', () => {
         let bounds = this.map.getBounds()
-        this.visibleLocations = []
+        this.visibleVenues = []
 
         this.markers.forEach(marker => {
           if (bounds.contains(marker.getPosition())) {
-            this.visibleLocations.push(this.allLocations.find(location => {
-              return location.id == marker.id
+            this.visibleVenues.push(this.allVenues.find(venue => {
+              return venue.id == marker.id
             }))
           }
         })
@@ -58,17 +52,30 @@ const app = window['app'] = new Vue({
       this.infoWindow = new google.maps.InfoWindow
 
       this.icon = {
-        url: '/img/mola.png',
-        scaledSize: new google.maps.Size(32, 32),
+        url: '/img/mola-pin.png',
+        scaledSize: new google.maps.Size(24, 34),
       }
+
+      this.loadVenuesFromApi()
     },
 
-    loadMarkers() {
-      this.allLocations.forEach(location => {
+    loadVenuesFromApi() {
+      // Load locations from the API
+      axios.get('/api/locations')
+        .then(response => {
+          this.allVenues = response.data
+          this.loadMarkers()
+        })
+    },
+
+    loadMarkers(locations = this.allVenues) {
+      this.markers = []
+
+      locations.forEach(location => {
         this.markers.push(createMarker(google, this.map, location, this.infoWindow, this.icon))
       })
 
-      this.showAll()
+      this.showMarkersOnMap()
     },
 
     getCurrentPosition(acquired) {
@@ -82,27 +89,52 @@ const app = window['app'] = new Vue({
       } catch (err) {}
     },
 
-    setLocation(selectedLocation) {
-      this.map.setCenter(new google.maps.LatLng(selectedLocation.lat, selectedLocation.lng))
+    setVenue(selectedVenue) {
+      this.map.setCenter(new google.maps.LatLng(selectedVenue.lat, selectedVenue.lng))
       this.map.setZoom(18)
     },
 
-    showAll() {
+    showMarkersOnMap() {
       // set zoom and center to show all markers
       let totalBounds = new google.maps.LatLngBounds()
 
       this.markers.forEach(marker => totalBounds.extend(marker.getPosition()))
       this.map.setCenter(totalBounds.getCenter())
       this.map.fitBounds(totalBounds)
-      this.map.setZoom(this.map.getZoom() - 1)
-    }
+      let zoom = this.map.getZoom() - 1
+      if (zoom > 18) zoom = 18
+      this.map.setZoom(zoom)
+    },
+
+    loadMarkersForCity(city) {
+      this.loadMarkers([...new Set(this.allVenues.filter(venue => venue.city == city))]);
+    },
+
+    loadMarkersFromSearch() {
+      let needle = this.needle.toLowerCase()
+
+      this.loadMarkers([...new Set(this.allVenues.filter(venue => {
+        return venue.name.toLowerCase().includes(needle) ||
+          venue.address.toLowerCase().includes(needle) ||
+          venue.city.toLowerCase().includes(needle)
+      }))]);
+    },
 
   },
 
   computed: {
     filtered() {
-      return this.allLocations > this.visibleLocations
+      return this.allVenues > this.visibleVenues
     },
+
+    citiesOfVisible() {
+      return [...new Set(this.visibleVenues.map(venue => venue.city))]
+    },
+
+    citiesOfAll() {
+      return [...new Set(this.allVenues.map(venue => venue.city))]
+    },
+
   },
 
 })
