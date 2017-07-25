@@ -56,10 +56,10 @@ const app = window['app'] = new Vue({
         scaledSize: new google.maps.Size(24, 34),
       }
 
-      this.loadVenuesFromApi()
+      this.getVenuesFromApi()
     },
 
-    loadVenuesFromApi() {
+    getVenuesFromApi() {
       // Load locations from the API
       axios.get('/api/locations')
         .then(response => {
