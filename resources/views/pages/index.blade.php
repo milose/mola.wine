@@ -9,7 +9,7 @@
 
             <div class="mb">
                 <div class="field-body">
-                    <button  href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary">
+                    <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary mrh">
                         <i class="fa fa-fv fa-globe"></i> &nbsp; Show All Venues
                     </button>
                 </div>
@@ -19,7 +19,7 @@
                 <div class="mbh"><strong>Filter by City</strong></div>
 
                 <div class="mbh">
-                    <span v-for="city in citiesOfAll" :class="_.includes(citiesOfVisible, city) ? 'tag is-light-blue' : 'tag is-visible'">
+                    <span v-for="city in citiesOfAll" :class="_.includes(citiesOfVisible, city) ? 'tag is-light-blue mrh' : 'tag is-visible mrh'">
                         <strong><a href="#map" @click="loadMarkersForCity(city)">@{{ city }}</a></strong>
                     </span>
                 </div>
