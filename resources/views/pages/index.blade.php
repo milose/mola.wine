@@ -12,6 +12,10 @@
                     <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary mrh">
                         <i class="fa fa-fv fa-globe"></i> &nbsp; Show All Venues
                     </button>
+
+                    <button href="#map" @click="showCurrentLocation" class="button is-primary">
+                        <i :class="readingLocation ? 'fa fa-fv fa-spinner' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
+                    </button>
                 </div>
             </div>
 

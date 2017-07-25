@@ -19,6 +19,7 @@ const app = window['app'] = new Vue({
       lng: 19.3,
       zoom: 10,
     },
+    readingLocation: false,
   },
 
   methods: {
@@ -73,15 +74,27 @@ const app = window['app'] = new Vue({
       this.showMarkersOnMap()
     },
 
-    getCurrentPosition(acquired) {
-      this.currentPosition = {
-        lat: acquired.coords.latitude,
-        lng: acquired.coords.longitude,
-        zoom: 14,
-      }
-      try {
-        this.map.setCenter(new google.maps.LatLng(this.currentPosition.lat, this.currentPosition.lng))
-      } catch (err) {}
+    showCurrentLocation() {
+      this.needle = ''
+
+      this.readingLocation = true
+
+      // read current location
+      navigator.geolocation.getCurrentPosition(acquired => {
+        this.currentPosition = {
+          lat: acquired.coords.latitude,
+          lng: acquired.coords.longitude,
+          zoom: 18,
+        }
+
+        // center map
+        try {
+          this.map.setCenter(new google.maps.LatLng(this.currentPosition.lat, this.currentPosition.lng))
+          this.map.setZoom(this.currentPosition.zoom)
+        } catch (err) {}
+
+        this.readingLocation = false
+      })
     },
 
     showVenue(selectedVenue) {
