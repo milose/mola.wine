@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="app">
-        <div class="title">Mola Wine Network</div>
+        <div class="title cc">Mola Wine Network</div>
 
         <div class="box">
             <div id="map" class="mb"></div>
