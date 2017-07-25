@@ -89,7 +89,9 @@ const app = window['app'] = new Vue({
       } catch (err) {}
     },
 
-    setVenue(selectedVenue) {
+    showVenue(selectedVenue) {
+      this.needle = ''
+
       this.map.setCenter(new google.maps.LatLng(selectedVenue.lat, selectedVenue.lng))
       this.map.setZoom(18)
     },

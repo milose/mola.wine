@@ -61,7 +61,7 @@
                         <footer class="card-footer">
                             <p class="card-footer-item cc">
                                 <span>
-                                    <a href="#map" @click="setVenue(venue)" class="button is-primary">
+                                    <a href="#map" @click="showVenue(venue)" class="button is-primary">
                                         <i class="fa fa-fw fa-map-o"></i>
                                     </a>
                                     <br>
