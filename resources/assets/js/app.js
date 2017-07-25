@@ -135,6 +135,10 @@ const app = window['app'] = new Vue({
       }))]);
     },
 
+    blurInput(event) {
+      event.target.blur()
+    }
+
   },
 
   computed: {

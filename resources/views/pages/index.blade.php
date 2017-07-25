@@ -33,7 +33,7 @@
                 <form class="field is-horizontal" @submit.prevent="loadMarkersFromSearch">
                     <div class="field has-addons">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Search" v-model="needle">
+                            <input class="input" type="text" placeholder="Search" v-model="needle" @keyup.enter="blurInput">
                         </div>
                         <div class="control">
                             <button type="submit" class="button is-info">
