@@ -14,7 +14,7 @@ const app = window['app'] = new Vue({
     allVenues: [],
     infoWindow: {},
     visibleVenues: [],
-    currentPosition: {
+    currentLocation: {
       lat: 42.5,
       lng: 19.3,
       zoom: 10,
@@ -26,9 +26,9 @@ const app = window['app'] = new Vue({
     createMap() {
       // load map
       this.map = new google.maps.Map(document.getElementById('map'), {
-        center: new google.maps.LatLng(this.currentPosition.lat, this.currentPosition.lng),
+        center: new google.maps.LatLng(this.currentLocation.lat, this.currentLocation.lng),
         scrollwheel: false,
-        zoom: this.currentPosition.zoom,
+        zoom: this.currentLocation.zoom,
       })
 
       // map listeners
@@ -81,7 +81,7 @@ const app = window['app'] = new Vue({
 
       // read current location
       navigator.geolocation.getCurrentPosition(acquired => {
-        this.currentPosition = {
+        this.currentLocation = {
           lat: acquired.coords.latitude,
           lng: acquired.coords.longitude,
           zoom: 18,
@@ -89,8 +89,8 @@ const app = window['app'] = new Vue({
 
         // center map
         try {
-          this.map.setCenter(new google.maps.LatLng(this.currentPosition.lat, this.currentPosition.lng))
-          this.map.setZoom(this.currentPosition.zoom)
+          this.map.setCenter(new google.maps.LatLng(this.currentLocation.lat, this.currentLocation.lng))
+          this.map.setZoom(this.currentLocation.zoom)
         } catch (err) {}
 
         this.readingLocation = false
