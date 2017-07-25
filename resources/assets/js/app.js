@@ -13,6 +13,7 @@ const app = window['app'] = new Vue({
     markers: [],
     allVenues: [],
     infoWindow: {},
+    resultsFound: true,
     visibleVenues: [],
     currentLocation: {
       lat: 42.5,
@@ -65,6 +66,9 @@ const app = window['app'] = new Vue({
     },
 
     loadMarkers(locations = this.allVenues) {
+      this.needle = ''
+      this.resultsFound = true
+
       this.markers = []
 
       locations.forEach(location => {
@@ -76,32 +80,34 @@ const app = window['app'] = new Vue({
 
     showCurrentLocation() {
       this.needle = ''
+      this.resultsFound = true
 
       this.readingLocation = true
 
       // read current location
       navigator.geolocation.getCurrentPosition(acquired => {
-        this.currentLocation = {
-          lat: acquired.coords.latitude,
-          lng: acquired.coords.longitude,
-          zoom: 18,
-        }
+          this.currentLocation = {
+            lat: acquired.coords.latitude,
+            lng: acquired.coords.longitude,
+            zoom: 18,
+          }
 
-        // center map
-        try {
-          this.map.setCenter(new google.maps.LatLng(this.currentLocation.lat, this.currentLocation.lng))
-          this.map.setZoom(this.currentLocation.zoom)
-        } catch (err) {}
+          // center map
+          try {
+            this.map.setCenter(new google.maps.LatLng(this.currentLocation.lat, this.currentLocation.lng))
+            this.map.setZoom(this.currentLocation.zoom)
+          } catch (err) {}
 
-        this.readingLocation = false
-      },
-      () => {
-        this.readingLocation = false
-      })
+          this.readingLocation = false
+        },
+        () => {
+          this.readingLocation = false
+        })
     },
 
     showVenue(selectedVenue) {
       this.needle = ''
+      this.resultsFound = true
 
       this.map.setCenter(new google.maps.LatLng(selectedVenue.lat, selectedVenue.lng))
       this.map.setZoom(18)
@@ -121,18 +127,27 @@ const app = window['app'] = new Vue({
 
     loadMarkersForCity(city) {
       this.needle = ''
+      this.resultsFound = true
 
       this.loadMarkers([...new Set(this.allVenues.filter(venue => venue.city == city))]);
     },
 
     loadMarkersFromSearch() {
-      let needle = this.needle.toLowerCase()
+      const needle = this.needle.toLowerCase()
 
-      this.loadMarkers([...new Set(this.allVenues.filter(venue => {
+      const haystack = [...new Set(this.allVenues.filter(venue => {
         return venue.name.toLowerCase().includes(needle) ||
           venue.address.toLowerCase().includes(needle) ||
           venue.city.toLowerCase().includes(needle)
-      }))]);
+      }))]
+
+      if (!haystack.length) {
+        this.resultsFound = false
+        return
+      }
+
+      this.loadMarkers(haystack);
+      this.resultsFound = true
     },
 
     blurInput(event) {

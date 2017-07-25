@@ -33,10 +33,10 @@
                 <form class="field is-horizontal" @submit.prevent="loadMarkersFromSearch">
                     <div class="field has-addons">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Search" v-model="needle" @keyup.enter="blurInput">
+                            <input :class="resultsFound ? 'input is-info' : 'input is-danger'" type="text" placeholder="Search" v-model="needle" @keyup.enter="blurInput">
                         </div>
                         <div class="control">
-                            <button type="submit" class="button is-info">
+                            <button type="submit" :class="resultsFound ? 'button is-info' : 'button is-danger'">
                                 <i class="fa fa-fw fa-search"></i>
                             </button>
                         </div>
