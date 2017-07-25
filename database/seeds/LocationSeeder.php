@@ -18,20 +18,20 @@ class LocationSeeder extends Seeder
 
         Location::create([
             'type' => 'restaurant',
+            'name' => 'Kensington',
+            'address' => 'Baku 24',
+            'city' => 'Podgorica',
+            'lat' => '42.4448784',
+            'lng' => '19.2372352',
+        ]);
+
+        Location::create([
+            'type' => 'restaurant',
             'name' => 'MeGusta',
             'address' => 'Serdara Jola Piletića',
             'city' => 'Podgorica',
             'lat' => '42.4499973',
             'lng' => '19.2594355',
-        ]);
-
-        Location::create([
-            'type' => 'restaurant',
-            'name' => 'Kensington',
-            'address' => 'Baky 24',
-            'city' => 'Podgorica',
-            'lat' => '42.4448784',
-            'lng' => '19.2372352',
         ]);
 
         Location::create([
@@ -68,6 +68,15 @@ class LocationSeeder extends Seeder
             'city' => 'Podgorica',
             'lat' => '42.4423256',
             'lng' => '19.2610455',
+        ]);
+
+        Location::create([
+            'type' => 'restaurant',
+            'name' => 'Hemingway',
+            'address' => 'Slovenska obala 11',
+            'city' => 'Budva',
+            'lat' => '42.2798132',
+            'lng' => '18.8366657',
         ]);
     }
 }
