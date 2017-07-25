@@ -109,6 +109,8 @@ const app = window['app'] = new Vue({
     },
 
     loadMarkersForCity(city) {
+      this.needle = ''
+
       this.loadMarkers([...new Set(this.allVenues.filter(venue => venue.city == city))]);
     },
 
