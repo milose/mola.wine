@@ -16,7 +16,7 @@
             </div>
 
             <div class="mb">
-                <div class="mbh"><strong>Cities</strong></div>
+                <div class="mbh"><strong>Filter by City</strong></div>
 
                 <div class="mbh">
                     <span v-for="city in citiesOfAll" :class="_.includes(citiesOfVisible, city) ? 'tag is-light-blue' : 'tag is-visible'">
@@ -24,7 +24,7 @@
                     </span>
                 </div>
 
-                <div class="mbh"><strong>Search</strong></div>
+                <div class="mbh"><strong>Search Venues</strong></div>
 
                 <form class="field is-horizontal" @submit.prevent="loadMarkersFromSearch">
                     <div class="field has-addons">
