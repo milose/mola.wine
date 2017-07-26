@@ -11,11 +11,7 @@ const app = window['app'] = new Vue({
     infoWindow: {},
     resultsFound: true,
     visibleVenues: [],
-    currentLocation: {
-      lat: 42.5,
-      lng: 19.3,
-      zoom: 10,
-    },
+    currentLocation: window.defaultLocation,
     readingLocation: false,
   },
 
