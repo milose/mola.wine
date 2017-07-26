@@ -42,13 +42,9 @@
         </div>
     @endif
 
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 
     <!-- Scripts -->
-    <script src="{{ $appJsPath }}"></script>
-
     @stack('scripts')
 </body>
 </html>
