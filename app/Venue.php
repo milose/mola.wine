@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venue extends Model
 {
+    protected $guarded = [];
+
     public static function findOrAll($needle = '')
     {
         if (!empty($needle)) {
