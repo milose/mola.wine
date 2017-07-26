@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Venue;
+
 class VenueController extends Controller
 {
     public function __construct()
@@ -23,22 +25,22 @@ class VenueController extends Controller
         //
     }
 
-    public function show($id)
+    public function show(Venue $venue)
     {
         //
     }
 
-    public function edit($id)
+    public function edit(Venue $venue)
     {
         //
     }
 
-    public function update($id)
+    public function update(Venue $venue)
     {
         //
     }
 
-    public function destroy($id)
+    public function destroy(Venue $venue)
     {
         //
     }
