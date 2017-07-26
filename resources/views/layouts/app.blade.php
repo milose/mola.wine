@@ -40,8 +40,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ $appJsPath }}"></script>
-
     @stack('scripts')
 </body>
 </html>
