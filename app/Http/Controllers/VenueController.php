@@ -42,6 +42,10 @@ class VenueController extends Controller
 
     public function destroy(Venue $venue)
     {
-        //
+        $venue->delete();
+
+        return redirect(action('VenueController@index'))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue deleted.');
     }
 }
