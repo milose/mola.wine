@@ -10,6 +10,7 @@
         <hr>
         <div>
             <form action="{{ action('Auth\LoginController@logout') }}" method="post">
+
                 {{ csrf_field() }}
 
                 <button type="submit" class="button is-danger"><i class="fa fa-fv fa-sign-out"></i> &nbsp; Logout</button>
