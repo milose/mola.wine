@@ -129,6 +129,7 @@
                     class="input {{ $errors->has('lat') ? 'is-danger' : '' }}"
                     value="{{ old('lat') ?? $venue->lat }}"
                     placeholder="Lattitude"
+                    v-model="currentLocation.lat"
                     required
                 >
                 <span class="icon is-small is-left">
@@ -150,6 +151,7 @@
                     class="input {{ $errors->has('lng') ? 'is-danger' : '' }}"
                     value="{{ old('lng') ?? $venue->lng }}"
                     placeholder="Longitude"
+                    v-model="currentLocation.lng"
                     required
                 >
                 <span class="icon is-small is-left">
@@ -166,10 +168,11 @@
 </div>
 
 <div class="field is-horizontal">
-    <div class="field-label is-normal">
+    <div class="field is-normal">
         <label class="label">Select location</label>
     </div>
-    <div class="field-body">
-        <div class="mapSelect">THIS IS MAP</div>
-    </div>
+</div>
+<div id="mapContainer" class="panel">
+    <div id="map"></div>
+    <div id="crosshair"><img src="/img/crosshair.png"></div>
 </div>

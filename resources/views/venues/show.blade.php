@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="section">
+    <section class="section" id="app">
 
         <div class="block">
             <a href="{{ action('VenueController@index') }}" class="button">
@@ -20,7 +20,10 @@
         <div class="subtitle">{{ $venue->address }}</div>
         <div class="subtitle">{{ $venue->city }}</div>
 
-        <div class="panel">map</div>
+        <div id="mapContainer" class="panel">
+            <div id="map"></div>
+            <div id="crosshair"><img src="/img/crosshair.png"></div>
+        </div>
 
         <hr>
 
@@ -40,4 +43,19 @@
         </div>
 
     </section>
+
+    @push('scripts')
+        <script>
+            var createMap = function() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng({{ $venue->lat }}, {{ $venue->lng }}),
+                draggable: false,
+                scrollwheel: false,
+                keyboardShortcuts: false,
+                zoom: 18,
+              })
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=createMap" async defer></script>
+    @endpush
 @endsection

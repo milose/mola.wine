@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="section">
+    <section class="section" id="app">
 
         <div class="block">
             <a href="{{ action('VenueController@show', $venue) }}" class="button">
@@ -37,6 +37,17 @@
 
         </form>
 
-
     </section>
+
+    @push('scripts')
+        <script>
+            var mapCenterLocation = {
+                lat: {{ $venue->lat }},
+                lng: {{ $venue->lng }},
+                zoom: 18,
+            }
+        </script>
+        <script src="{{ $venueJs }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=app.createMap" async defer></script>
+    @endpush
 @endsection

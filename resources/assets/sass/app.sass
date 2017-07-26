@@ -11,6 +11,9 @@ html, body
 #map
   height: 450px
 
+  &Container
+    position: relative
+
 .location
   display: flex
 
@@ -22,3 +25,13 @@ html, body
 
 .is-light-blue
   background-color: lighten($blue, 21%)
+
+#crosshair
+  position: absolute
+  width: 24px
+  height: 24px
+  left: 50%
+  top: 50%
+  margin-top: -12px
+  margin-left: -12px
+  pointer-events: none
