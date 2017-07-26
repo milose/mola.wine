@@ -22,7 +22,23 @@ class VenueController extends Controller
 
     public function store()
     {
-        //
+        $rules = [
+            'type' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+        ];
+
+        $this->validate(request(), $rules);
+
+        // @TODO: Fix this when 5.5 comes out
+        $venue = Venue::create(request(array_keys($rules)));
+
+        return redirect(action('VenueController@show', $venue))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue created.');
     }
 
     public function show(Venue $venue)
