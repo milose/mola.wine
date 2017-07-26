@@ -17,5 +17,5 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 Route::get('locations', function() {
-    return App\Location::all();
+    return App\Venue::all();
 });
