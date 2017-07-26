@@ -27,7 +27,7 @@
                     <div class="field">
                         <div class="control">
                             <button type="submit" class="button is-primary">
-                                <span class="icon"><i class="fa fa-plus"></i></span>
+                                <span class="icon"><i class="fa fa-save"></i></span>
                                 <span>Update Venue</span>
                             </button>
                         </div>

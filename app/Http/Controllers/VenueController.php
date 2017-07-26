@@ -55,7 +55,23 @@ class VenueController extends Controller
 
     public function update(Venue $venue)
     {
-        //
+        $rules = [
+            'type' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+        ];
+
+        $this->validate(request(), $rules);
+
+        // @TODO: Fix this when 5.5 comes out
+        $venue->update(request(array_keys($rules)));
+
+        return redirect(action('VenueController@show', $venue))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue updated.');
     }
 
     public function destroy(Venue $venue)
