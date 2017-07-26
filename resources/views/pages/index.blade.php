@@ -89,4 +89,8 @@
         </div>
 
     </div>
+
+    @push('scripts')
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=app.createMap" async defer></script>
+    @endpush
 @endsection

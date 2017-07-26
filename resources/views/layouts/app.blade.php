@@ -41,6 +41,7 @@
 
     <!-- Scripts -->
     <script src="{{ $appJsPath }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=app.createMap" async defer></script>
+
+    @stack('scripts')
 </body>
 </html>
