@@ -3,7 +3,11 @@
 @section('content')
     <section class="section">
 
-        <div class="field">
+        <div class="block">
+            <a href="{{ action('PageController@adminHome') }}" class="button">
+                <span class="icon"><i class="fa fa-fv fa-times"></i></span>
+            </a>
+
             <a href="{{ action('VenueController@create') }}" class="button is-success">
                 <span class="icon"><i class="fa fa-fv fa-plus"></i></span>
                 <span>Add new venue</span>

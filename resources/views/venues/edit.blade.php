@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
 
-        <div class="field">
+        <div class="block">
             <a href="{{ action('VenueController@show', $venue) }}" class="button">
                 <span class="icon"><i class="fa fa-fv fa-times"></i></span>
             </a>
