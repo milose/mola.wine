@@ -57,22 +57,22 @@ const app = window['app'] = new Vue({
     },
 
     getVenuesFromApi() {
-      // Load venues from the API
-      axios.get('/api/venues')
+      // Load locations from the API
+      axios.get('/api/locations')
         .then(response => {
           this.allVenues = response.data
           this.loadMarkers()
         })
     },
 
-    loadMarkers(venues = this.allVenues) {
+    loadMarkers(locations = this.allVenues) {
       this.needle = ''
       this.resultsFound = true
 
       this.markers = []
 
-      venues.forEach(venue => {
-        this.markers.push(createMarker(google, this.map, venue, this.infoWindow, this.icon))
+      locations.forEach(location => {
+        this.markers.push(createMarker(google, this.map, location, this.infoWindow, this.icon))
       })
 
       this.showMarkersOnMap()
