@@ -49,7 +49,8 @@ class VenueController extends Controller
 
     public function edit(Venue $venue)
     {
-        //
+        return view('venues.edit')
+            ->with('venue', $venue);
     }
 
     public function update(Venue $venue)

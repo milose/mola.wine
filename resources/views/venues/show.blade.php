@@ -3,9 +3,14 @@
 @section('content')
     <section class="section">
 
-        <div class="field">
+        <div class="block">
             <a href="{{ action('VenueController@index') }}" class="button">
                 <span class="icon"><i class="fa fa-fv fa-times"></i></span>
+            </a>
+
+            <a href="{{ action('VenueController@edit', $venue) }}" class="button is-primary">
+                <span class="icon"><i class="fa fa-edit"></i></span>
+                <span>Edit This Venue</span>
             </a>
         </div>
 
@@ -29,7 +34,7 @@
 
                 <button type="submit" class="button is-danger">
                     <span class="icon"><i class="fa fa-fv fa-trash"></i></span>
-                    <span>Delete this venue</span>
+                    <span>Delete This Venue</span>
                 </button>
             </form>
         </div>
