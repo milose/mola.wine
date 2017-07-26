@@ -16,5 +16,6 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
-Route::get('venues', 'PublicVenueController@index');
+Route::get('locations', function() {
+    return App\Location::all();
+});

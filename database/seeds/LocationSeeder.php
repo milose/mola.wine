@@ -1,13 +1,13 @@
 <?php
 
-use App\Venue;
+use App\Location;
 use Illuminate\Database\Seeder;
 
-class VenueSeeder extends Seeder
+class LocationSeeder extends Seeder
 {
     public function run()
     {
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Miloš',
             'address' => 'Baku 52',
@@ -16,7 +16,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.236680',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Kensington',
             'address' => 'Baku 24',
@@ -25,7 +25,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.2372352',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'MeGusta',
             'address' => 'Serdara Jola Piletića',
@@ -34,7 +34,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.2594355',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'PerSempre',
             'address' => 'Vojvode Maša Đurovića 2/10',
@@ -43,7 +43,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.234373',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Garden',
             'address' => 'Bulevar Mihaila Lalića 9',
@@ -52,7 +52,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.2450052',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Street Bar',
             'address' => 'Bulevar Svetog Petra Cetinjskog 192',
@@ -61,7 +61,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.2471188',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Culture Club Štrudla',
             'address' => 'Bokeška 16',
@@ -70,7 +70,7 @@ class VenueSeeder extends Seeder
             'lng' => '19.2610455',
         ]);
 
-        Venue::create([
+        Location::create([
             'type' => 'restaurant',
             'name' => 'Hemingway',
             'address' => 'Slovenska obala 11',
