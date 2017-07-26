@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
-class PublicVenueController extends Controller
+class VenueController extends Controller
 {
     public function index()
     {

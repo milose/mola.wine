@@ -17,4 +17,4 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('venues', 'PublicVenueController@index');
+Route::get('venues', 'Api\VenueController@index');
