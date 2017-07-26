@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Get the path only
+        view()->share('appJsPath', parse_url(mix('js/app.js'), PHP_URL_PATH));
+        view()->share('appCssPath', parse_url(mix('css/app.css'), PHP_URL_PATH));
     }
 
     /**
