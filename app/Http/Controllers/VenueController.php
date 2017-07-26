@@ -2,83 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Venue;
 
 class VenueController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
-    }
+        $needle = request('needle');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        return view('venues.index')
+            ->with('venues', Venue::findOrAll($needle))
+            ->with('needle', $needle);
+    }
     public function create()
     {
-        //
+        return view('venues.create')
+            ->with('venue', new Venue);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $rules = [
+            'type' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+        ];
+
+        $this->validate(request(), $rules);
+
+        // @TODO: Fix this when 5.5 comes out
+        $venue = Venue::create(request(array_keys($rules)));
+
+        return redirect(action('VenueController@show', $venue))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue created.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Venue $venue)
     {
-        //
+        return view('venues.show')
+            ->with('venue', $venue);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Venue $venue)
     {
-        //
+        return view('venues.edit')
+            ->with('venue', $venue);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Venue $venue)
     {
-        //
+        $rules = [
+            'type' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+        ];
+
+        $this->validate(request(), $rules);
+
+        // @TODO: Fix this when 5.5 comes out
+        $venue->update(request(array_keys($rules)));
+
+        return redirect(action('VenueController@show', $venue))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Venue $venue)
     {
-        //
+        $venue->delete();
+
+        return redirect(action('VenueController@index'))
+            ->with('notification', 'success')
+            ->with('notificationTitle', 'Venue deleted.');
     }
 }

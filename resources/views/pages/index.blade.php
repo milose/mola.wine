@@ -91,7 +91,7 @@
     </div>
 
     @push('scripts')
-        <script src="{{ $appJsPath }}"></script>
+        <script src="{{ $indexJs }}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=app.createMap" async defer></script>
     @endpush
 @endsection
