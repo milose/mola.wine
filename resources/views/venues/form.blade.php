@@ -94,15 +94,15 @@
         <div class="field is-narrow">
             <div class="control">
                 <label class="radio">
-                    <input type="radio" name="type" value="restaurant" {{ old('type') ?? $venue->type == 'restaurant' ? 'checked="checked"' : '' }}>
+                    <input type="radio" name="type" value="restaurant" {{ (old('type') ?? $venue->type) == 'restaurant' ? 'checked="checked"' : '' }}>
                     restaurant
                 </label>
                 <label class="radio">
-                    <input type="radio" name="type" value="bar" {{ old('type') ?? $venue->type == 'bar' ? 'checked="checked"' : '' }}>
+                    <input type="radio" name="type" value="bar" {{ (old('type') ?? $venue->type) == 'bar' ? 'checked="checked"' : '' }}>
                     bar
                 </label>
                 <label class="radio">
-                    <input type="radio" name="type" value="hotel" {{ old('type') ?? $venue->type == 'hotel' ? 'checked="checked"' : '' }}>
+                    <input type="radio" name="type" value="hotel" {{ (old('type') ?? $venue->type) == 'hotel' ? 'checked="checked"' : '' }}>
                     hotel
                 </label>
             </div>
@@ -123,11 +123,11 @@
         <div class="field">
             <div class="control is-expanded has-icons-left">
                 <input
-                    id="xxx"
-                    name="xxx"
+                    id="lat"
+                    name="lat"
                     type="text"
-                    class="input {{ $errors->has('xxx') ? 'is-danger' : '' }}"
-                    value="{{ old('xxx') ?? $venue->xxx }}"
+                    class="input {{ $errors->has('lat') ? 'is-danger' : '' }}"
+                    value="{{ old('lat') ?? $venue->lat }}"
                     placeholder="Lattitude"
                     required
                 >
@@ -135,20 +135,20 @@
                   <i class="fa fa-compass"></i>
                 </span>
             </div>
-            @if ($errors->has('xxx'))
+            @if ($errors->has('lat'))
                 <p class="help is-danger">
-                    {{ $errors->first('xxx') }}
+                    {{ $errors->first('lat') }}
                 </p>
             @endif
         </div>
         <div class="field">
             <div class="control is-expanded has-icons-left">
                 <input
-                    id="xxx"
-                    name="xxx"
+                    id="lng"
+                    name="lng"
                     type="text"
-                    class="input {{ $errors->has('xxx') ? 'is-danger' : '' }}"
-                    value="{{ old('xxx') ?? $venue->xxx }}"
+                    class="input {{ $errors->has('lng') ? 'is-danger' : '' }}"
+                    value="{{ old('lng') ?? $venue->lng }}"
                     placeholder="Longitude"
                     required
                 >
@@ -156,9 +156,9 @@
                   <i class="fa fa-compass"></i>
                 </span>
             </div>
-            @if ($errors->has('xxx'))
+            @if ($errors->has('lng'))
                 <p class="help is-danger">
-                    {{ $errors->first('xxx') }}
+                    {{ $errors->first('lng') }}
                 </p>
             @endif
         </div>

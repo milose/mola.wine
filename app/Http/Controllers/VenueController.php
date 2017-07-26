@@ -16,7 +16,8 @@ class VenueController extends Controller
     }
     public function create()
     {
-        //
+        return view('venues.create')
+            ->with('venue', new Venue);
     }
 
     public function store()
