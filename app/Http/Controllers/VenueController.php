@@ -8,7 +8,11 @@ class VenueController extends Controller
 {
     public function index()
     {
-        //
+        $needle = request('needle');
+
+        return view('venues.index')
+            ->with('venues', Venue::findOrAll($needle))
+            ->with('needle', $needle);
     }
     public function create()
     {
