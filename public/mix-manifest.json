@@ -1,12 +1,6 @@
 {
-  "/js/app.js": "/js/app.834ee9eb172887b5a1fe.js",
-  "/css/app.css": "/css/app.5af4b9d0b12218addf68668d4cd50504.css",
-  "/js/vue.js": "/js/vue.js",
-  "/js/venueShowMap.js": "/js/venueShowMap.a01989f0680023b7df88.js",
-  "/js/venueCreateMap.js": "/js/venueCreateMap.c3b2cfdd72d8bbed722b.js",
-  "/js/indexMap.js": "/js/indexMap.3df60d9654dafceb2a68.js",
-  "/js/venueShow.js": "/js/venueShow.8885d1e926f0563ff38b.js",
-  "/js/venueCreate.js": "/js/venueCreate.5585fa31cc01bf8bc28a.js",
-  "/js/index.js": "/js/index.2051f369f2bc36a203cb.js",
-  "/js/venue.js": "/js/venue.1e72935747683ef1a589.js"
+  "/js/app.js": "/js/app.js",
+  "/css/app.css": "/css/app.css",
+  "/js/index.js": "/js/index.js",
+  "/js/venue.js": "/js/venue.js"
 }
