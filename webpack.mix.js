@@ -18,4 +18,4 @@ mix
   .js('resources/assets/js/index.js', 'public/js')
   .js('resources/assets/js/venue.js', 'public/js')
   .sass('resources/assets/sass/app.sass', 'public/css')
-  .version()
+  // .version()
