@@ -16,10 +16,11 @@
 @endsection
 
 @section('content')
-    <div id="app">
-        <div class="title cc">Mola Wine Network</div>
+    <div id="app" class="container">
 
-        <div class="box">
+        <div class="container mb">
+            <div class="title cc">Mola Wine Network</div>
+
             <div id="map" class="field"></div>
 
             <div class="field is-grouped">
@@ -73,7 +74,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="container">
             <div class="columns is-multiline">
 
                 <div class="column is-one-third-tablet is-one-quarter-desktop" v-for="venue in visibleVenues">
