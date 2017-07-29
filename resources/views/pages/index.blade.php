@@ -117,8 +117,37 @@
 
     </div>
 
+    {{-- <section class="section">
+        <p>
+            <div
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true">
+            </div>
+        </p>
+    </section> --}}
+
     @push('scripts')
         <script src="{{ $indexJs }}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&amp;callback=app.createMap" async defer></script>
+        {{-- <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1588670211197528',
+              xfbml      : true,
+              version    : 'v2.10'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script> --}}
     @endpush
 @endsection
