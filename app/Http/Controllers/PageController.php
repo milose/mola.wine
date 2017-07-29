@@ -9,9 +9,9 @@ class PageController extends Controller
         return view('pages.index');
     }
 
-    public function fbLocations()
+    public function fbVenues()
     {
-        return view('pages.fb-locations');
+        return view('pages.fb-venues');
     }
 
     public function adminHome()
