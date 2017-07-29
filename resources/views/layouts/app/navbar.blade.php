@@ -1,7 +1,7 @@
 <nav class="navbar ">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="/img/logo-large-raster.png" alt="Mola" width="28" height="28">
+      <img src="/img/mola-nav-logo.png" alt="Mola" width="89" height="28">
     </a>
 
     <div class="navbar-burger burger" data-target="navMenu">
@@ -79,75 +79,3 @@
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-
-
-
-{{--
-
-
-
-
-
-<section class="hero">
-    <div class="hero-head">
-        <header class="nav">
-            <div class="container">
-                <div class="nav-left">
-                    <a href="/" class="nav-item">
-                        <img src="/img/logo-large-raster.png" alt="Mola">
-                    </a>
-                </div>
-                <span class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <div class="nav-right nav-menu">
-
-                    {{-- <a href="" class="nav-item">
-                        Products
-                    </a>
-                    <a href="" class="nav-item">
-                        Contact
-                    </a>
-
-                    @if (!Auth::guest())
-
-                        <a class="nav-item">|</a>
-
-                        <a href="/home" class="nav-item">
-                            Admin
-                        </a>
-
-                        <a class="nav-item">
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <a href="{{ route('logout') }}" class="nav-item" onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-
-                    @endif
-
-                </div>
-            </div>
-        </header>
-    </div>
-
-    @stack('heroheader')
-
-    @stack('heronav')
-
-</section> --}}
