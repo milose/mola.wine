@@ -5,36 +5,41 @@
         <div class="title cc">Mola Wine Network</div>
 
         <div class="box">
-            <div id="map" class="mb"></div>
+            <div id="map" class="field"></div>
 
-            <div class="mbh">
-                <div class="field-body">
-                    <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary mrh mbh">
+            <div class="field is-grouped">
+                <p class="control">
+                    <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary">
                         <i class="fa fa-fv fa-globe"></i> &nbsp; Show All Venues
                     </button>
-
-                    <button href="#map" @click="showCurrentLocation" class="button is-primary mbh">
-                        <i :class="readingLocation ? 'fa fa-fv fa-spinner' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
+                </p>
+                <p class="control">
+                    <button href="#map" @click="showCurrentLocation" class="button is-primary">
+                        <i :class="readingLocation ? 'fa fa-fv is-loading' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
                     </button>
-                </div>
+                </p>
             </div>
 
-            <div class="mb">
-                <div class="mbh"><strong>Filter by City</strong></div>
+            <div class="field">
+                <p class="control">
+                    <strong>Filter by City</strong>
+                </p>
 
-                <div class="mbh">
-                    <span v-for="city in citiesOfAll" :class="_.includes(citiesOfVisible, city) ? 'tag is-light-blue mrh' : 'tag is-visible mrh'">
+                <p class="field is-grouped">
+                    <span v-for="city in citiesOfAll" :class="_.includes(citiesOfVisible, city) ? 'tag is-light-blue control' : 'tag is-visible control'">
                         <strong><a href="#map" @click="loadMarkersForCity(city)">@{{ city }}</a></strong>
                     </span>
-                </div>
+                </p>
 
-                <div class="mbh"><strong>Search Venues</strong></div>
+                <form class="field" @submit.prevent="loadMarkersFromSearch">
 
-                <form class="field is-horizontal" @submit.prevent="loadMarkersFromSearch">
+                    <div class="field"><strong>Search Venues</strong></div>
+
                     <div class="field has-addons">
                         <div class="control">
                             <input :class="resultsFound ? 'input is-info' : 'input is-danger'" type="text" placeholder="Search" v-model="needle" @keyup.enter="blurInput">
                         </div>
+
                         <div class="control">
                             <button type="submit" :class="resultsFound ? 'button is-info' : 'button is-danger'">
                                 <i class="fa fa-fw fa-search"></i>
@@ -43,6 +48,7 @@
                     </div>
 
                 </form>
+
             </div>
         </div>
 
