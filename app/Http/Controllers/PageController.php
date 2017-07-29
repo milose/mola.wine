@@ -6,12 +6,14 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        return view('pages.index')
+            ->with('headless', false);
     }
 
-    public function fbLocations()
+    public function fbVenues()
     {
-        return view('pages.fb-locations');
+        return view('pages.index')
+            ->with('headless', true);
     }
 
     public function adminHome()
