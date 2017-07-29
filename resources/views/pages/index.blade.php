@@ -22,8 +22,8 @@
                     </button>
                 </p>
                 <p class="control">
-                    <button href="#map" @click="showCurrentLocation" class="button is-primary">
-                        <i :class="readingLocation ? 'fa fa-fv is-loading' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
+                    <button href="#map" @click="showCurrentLocation" :class="readingLocation ? 'button is-primary is-loading' : 'button is-primary'">
+                        <i class="fa fa-location-arrow'"></i> &nbsp; Show Current Location
                     </button>
                 </p>
             </div>
