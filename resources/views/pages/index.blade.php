@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    <div id="app" class="container">
+    <div id="app" class="section">
 
         <div class="container mb">
             <div class="title cc">Mola Wine Network</div>
