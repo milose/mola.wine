@@ -15,8 +15,6 @@ const app = window['app'] = new Vue({
         zoom: this.currentLocation.zoom,
       })
 
-      console.log(this.map)
-
       // map listeners
       this.map.addListener('bounds_changed', () => {
         let pos = this.map.getCenter()
