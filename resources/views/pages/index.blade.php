@@ -18,12 +18,18 @@
             <div class="field is-grouped">
                 <p class="control">
                     <button href="#map" @click="loadMarkers(allVenues)" :disabled="filtered ? false : true" class="button is-primary">
-                        <i class="fa fa-fv fa-globe"></i> &nbsp; Show All Venues
+                        <span class="icon">
+                          <i class="fa fa-globe"></i>
+                        </span>
+                        <span>Show All Venues</span>
                     </button>
                 </p>
                 <p class="control">
-                    <button href="#map" @click="showCurrentLocation" class="button is-primary">
-                        <i :class="readingLocation ? 'fa fa-fv is-loading' : 'fa fa-fv fa-location-arrow'"></i> &nbsp; Show Current Location
+                    <button href="#map" @click="showCurrentLocation" :class="readingLocation ? 'button is-primary is-loading' : 'button is-primary'">
+                        <span class="icon">
+                          <i class="fa fa-location-arrow"></i>
+                        </span>
+                        <span>Show Current Location</span>
                     </button>
                 </p>
             </div>
