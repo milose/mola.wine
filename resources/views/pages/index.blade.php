@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta property="og:title" content="{{ env('APP_NAME') }}">
+    <meta property="og:description" content="Mola - A boutique venyard on a hill on outskirts of Podgorica, Montenegro.">
+    <meta property="og:image" content="https://mola.wine/img/mola-oak.jpg">
+    <meta property="og:url" content="https://mola.wine/?utm_source=meta-share">
+    <meta name="twitter:card" content="summary_large_image">
+@endsection
+
 @section('content')
     <div id="app">
         <div class="title cc">Mola Wine Network</div>
