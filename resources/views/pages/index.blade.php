@@ -33,10 +33,14 @@
                 </p>
                 <p class="control">
                     <button href="#map" @click="showCurrentLocation" :class="readingLocation ? 'button is-primary is-loading' : 'button is-primary'">
+<<<<<<< HEAD
                         <span class="icon">
                           <i class="fa fa-location-arrow"></i>
                         </span>
                         <span>Show Current Location</span>
+=======
+                        <i class="fa fa-location-arrow'"></i> &nbsp; Show Current Location
+>>>>>>> f07f28be494d3db60961be7759ec5fc72bc813dd
                     </button>
                 </p>
             </div>
