@@ -21,6 +21,8 @@
 <body>
     @yield('content')
 
+    @include('layouts.app.footer')
+
     <!-- Scripts -->
     <script src="{{ $appJs }}"></script>
     @stack('scripts')
