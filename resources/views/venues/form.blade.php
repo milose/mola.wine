@@ -175,4 +175,11 @@
 <div id="mapContainer" class="panel">
     <div id="map"></div>
     <div id="crosshair"><img src="/img/crosshair.png"></div>
+    <div id="mapSearch">
+        <div class="field">
+            <div class="control">
+                <input type="text" class="input" v-model="address" @input="addressChanged" @keydown.enter="blurInput">
+            </div>
+        </div>
+    </div>
 </div>

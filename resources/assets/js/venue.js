@@ -4,6 +4,7 @@ const app = window['app'] = new Vue({
   data: {
     currentLocation: window.mapCenterLocation,
     readingLocation: false,
+    address: '',
   },
 
   methods: {
@@ -50,7 +51,24 @@ const app = window['app'] = new Vue({
 
     blurInput(event) {
       event.target.blur()
-    }
+    },
+
+    addressChanged: _.debounce(function (e) {
+      this.locateAddress(this.address)
+    }, 500),
+
+    locateAddress(address) {
+      let geocoder = new google.maps.Geocoder()
+
+      geocoder.geocode({
+        address
+      }, (results, status) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+          this.map.setCenter(results[0].geometry.location)
+          this.map.setZoom(18)
+        }
+      })
+    },
 
   },
 
