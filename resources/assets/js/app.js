@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import axios from 'axios'
 import Vue from 'vue'
+import navbarToggle from './functions/navbarToggle'
 
 window['_'] = _
 window['axios'] = axios
@@ -21,3 +22,7 @@ if (token) {
 } else {
   console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token')
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  navbarToggle()
+}, true)
