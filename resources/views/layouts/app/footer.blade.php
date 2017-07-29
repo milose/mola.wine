@@ -7,7 +7,7 @@
             </p>
             <p class="is-small">
                 <small>
-                    by <a href="https://deva.co">deva.co</a>
+                    by <a href="https://deva.co" target="_blank">deva.co</a>
                 </small>
             </p>
         </div>
