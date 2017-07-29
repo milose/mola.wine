@@ -3,7 +3,7 @@
 Auth::routes();
 
 Route::get('', 'PageController@index');
-Route::get('fb-venues', 'PageController@fbVenues');
+Route::any('fb-venues', 'PageController@fbVenues');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('home', 'PageController@adminHome');
