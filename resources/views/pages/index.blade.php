@@ -37,7 +37,7 @@
                         <span class="icon">
                           <i class="fa fa-location-arrow"></i>
                         </span>
-                        <span>Show Current Location</span>
+                        <span>Near Me</span>
                     </button>
                 </p>
             </div>

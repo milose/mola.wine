@@ -81,7 +81,7 @@ const app = window['app'] = new Vue({
           this.currentLocation = {
             lat: acquired.coords.latitude,
             lng: acquired.coords.longitude,
-            zoom: 18,
+            zoom: 16,
           }
 
           // center map
